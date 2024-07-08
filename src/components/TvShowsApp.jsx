@@ -1,11 +1,26 @@
 import episodes from "../data/gameOfThronesEpisodes.json";
-export function TVShowsApp() {
-    const ep1 = episodes[0];
+import EpisodeDisplay from "./episodeDisplay.jsx";
+
+
+export default function TVShowsApp() {
+    
+
+    const mapEpisodeProperties = episodes.map((episode) => {
+        return <EpisodeDisplay 
+        key = {episode.id}
+        name = {episode.name}
+        seasonEpisode={
+            episode.season <= 9 || episode.number <= 9
+              ? `S${episode.season.toString().padStart(2, "0")}E${episode.number.toString().padStart(2, "0")}`
+              : `S${episode.season}E${episode.number}`
+          }
+        image = {episode.image.medium}
+        summary = {episode.summary}
+        />
+    })
     return (
-        <main className="tvShowsApp">
-            <h1>TVShowsApp</h1>
-            <div>Got {episodes.length} episode(s) in array</div>
-            <div>Title of first episode: {ep1.name}</div>
-        </main>
-    );
+        <div>
+         {mapEpisodeProperties}   
+        </div>
+    )
 }
