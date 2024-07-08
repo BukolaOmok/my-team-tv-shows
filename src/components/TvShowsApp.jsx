@@ -1,6 +1,7 @@
 import episodes from "../data/gameOfThronesEpisodes.json";
 import EpisodeDisplay from "./episodeDisplay.jsx";
 import { forEpisodeCode } from "./forEpisodseCode";
+import { removeTagInSummary } from "./removeTagInSummary";
 
 
 export default function TVShowsApp() {
@@ -12,7 +13,7 @@ export default function TVShowsApp() {
         name = {episode.name}
         seasonEpisode={forEpisodeCode(episode)}
         image = {episode.image.medium}
-        summary = {episode.summary}
+        summary = {removeTagInSummary(episode)}
         />
     })
     return (
