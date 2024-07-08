@@ -5,7 +5,7 @@ function App() {
     return (
         <>
             <TVShowsApp />
-            {/* <DemonstratingProps /> */}
+            <p> Source credit: <a href= "https://www.tvmaze.com/" >TVMaze.com</a></p>
         </>
     );
 }

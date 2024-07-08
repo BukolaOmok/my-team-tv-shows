@@ -1,5 +1,6 @@
 import episodes from "../data/gameOfThronesEpisodes.json";
 import EpisodeDisplay from "./episodeDisplay.jsx";
+import { forEpisodeCode } from "./forEpisodseCode";
 
 
 export default function TVShowsApp() {
@@ -9,11 +10,7 @@ export default function TVShowsApp() {
         return <EpisodeDisplay 
         key = {episode.id}
         name = {episode.name}
-        seasonEpisode={
-            episode.season <= 9 || episode.number <= 9
-              ? `S${episode.season.toString().padStart(2, "0")}E${episode.number.toString().padStart(2, "0")}`
-              : `S${episode.season}E${episode.number}`
-          }
+        seasonEpisode={forEpisodeCode(episode)}
         image = {episode.image.medium}
         summary = {episode.summary}
         />

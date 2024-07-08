@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 
 export default function EpisodeDisplay (props) {
     return (
@@ -9,4 +10,11 @@ export default function EpisodeDisplay (props) {
     )
 
 }
+
+EpisodeDisplay.propTypes = {
+    name: PropTypes.string.isRequired,
+    seasonEpisode: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
+};
 
